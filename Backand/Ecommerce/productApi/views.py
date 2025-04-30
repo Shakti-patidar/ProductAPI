@@ -42,3 +42,5 @@ def modify_product(request, pk):
 def add_product_page(request):
                 return render(request, 'productApi/add_product_page.html')
     
+def product_list_page(request):
+    return render(request, 'productApi/product_list.html')     
