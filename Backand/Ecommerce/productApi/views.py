@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.decorators import api_view
 from .serializers import ProductSerializer # type: ignore
 from rest_framework.response import Response
@@ -44,3 +44,7 @@ def add_product_page(request):
     
 def product_list_page(request):
     return render(request, 'productApi/product_list.html')     
+
+def editing_product_page(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    return render(request, 'productApi/editing_product.html', {'product': product})
